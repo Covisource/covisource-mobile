@@ -1,3 +1,4 @@
+import 'package:covisource/pages/login.dart';
 import 'package:flutter/material.dart';
  
 void main() => runApp(CoviSource());
@@ -14,11 +15,7 @@ class _CoviSourceState extends State<CoviSource> {
       title: 'CoviSource',
       debugShowCheckedModeBanner: false,
       debugShowMaterialGrid: false,
-      home: Scaffold(
-        body: Center(
-          
-        ),
-      ),
+      home: LoginScreen(),
     );
   }
 }
