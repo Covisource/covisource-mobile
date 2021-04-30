@@ -43,18 +43,20 @@ class _LoginScreenState extends State<LoginScreen> {
                 children: [
                   Text(
                     "Your search for ",
-                    style: GoogleFonts.poppins(
-                      fontSize: 25,
+                    style: GoogleFonts.montserrat(
+                      fontSize: 26,
+                      fontWeight: FontWeight.w400,
                     ),
                   ),
                   AutoTextChanger(
                     text: options,
                     textChangeSec: 3,
                     animationDuration: 500,
-                    textstyle: GoogleFonts.poppins(
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold,
-                        foreground: Paint()..shader = linearGradient),
+                    textstyle: GoogleFonts.montserrat(
+                      fontSize: 26,
+                      fontWeight: FontWeight.w600,
+                      foreground: Paint()..shader = linearGradient,
+                    ),
                     isAnimated: true,
                     initialtext: "resources",
                   ),
@@ -62,15 +64,16 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               Text(
                 "ends here.",
-                style: GoogleFonts.poppins(
-                  fontSize: 25,
+                style: GoogleFonts.montserrat(
+                  fontSize: 26,
+                  fontWeight: FontWeight.w400,
                 ),
               ),
               SizedBox(
                 height: 20,
               ),
               SizedBox(
-                width: 320,
+                width: 350,
                 height: 65,
                 child: AuthButton(
                   text: "Login With Google",
@@ -82,9 +85,8 @@ class _LoginScreenState extends State<LoginScreen> {
               Padding(
                 padding: const EdgeInsets.only(top: 15),
                 child: SizedBox(
-                  width: 320,
+                  width: 350,
                   height: 65,
-                  // ignore: deprecated_member_use
                   child: AuthButton(
                     text: "Login With Twitter",
                     icon: FontAwesomeIcons.twitter,
@@ -96,9 +98,8 @@ class _LoginScreenState extends State<LoginScreen> {
               Padding(
                 padding: const EdgeInsets.only(top: 15),
                 child: SizedBox(
-                  width: 320,
+                  width: 350,
                   height: 65,
-                  // ignore: deprecated_member_use
                   child: AuthButton(
                     text: "Continue as Guest",
                     icon: FontAwesomeIcons.user,
