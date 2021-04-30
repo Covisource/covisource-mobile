@@ -1,3 +1,4 @@
+import 'package:covisource/components/auto_text_changer.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -8,6 +9,26 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  List<String> options = [
+    "oxygen",
+    "beds",
+    "hospitals",
+    "plasma",
+    "remdesivir",
+    "vaccines",
+    "ventilators"
+  ];
+  String current = "oxygen";
+  int index = 0;
+  final Shader linearGradient =
+      LinearGradient(colors: <Color>[Colors.lightBlue, Colors.blue])
+          .createShader(Rect.fromLTWH(0.0, 0.0, 200.0, 70.0));
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,7 +37,38 @@ class _LoginScreenState extends State<LoginScreen> {
         child: Center(
           child: Column(
             children: [
-              Image.asset("assets/warriors.png"),
+              Image.asset("assets/warriors.png", width: 275, height: 275),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Your search for ",
+                    style: GoogleFonts.poppins(
+                      fontSize: 25,
+                    ),
+                  ),
+                  AutoTextChanger(
+                    text: options,
+                    textChangeSec: 3,
+                    animationDuration: 500,
+                    textstyle: GoogleFonts.poppins(
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                        foreground: Paint()..shader = linearGradient),
+                    isAnimated: true,
+                    initialtext: "resources",
+                  ),
+                ],
+              ),
+              Text(
+                "ends here.",
+                style: GoogleFonts.poppins(
+                  fontSize: 25,
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
               SizedBox(
                 width: 320,
                 height: 65,
@@ -106,6 +158,7 @@ class AuthButton extends StatelessWidget {
       label: Text(
         text,
         style: GoogleFonts.poppins(
+          fontWeight: FontWeight.w500,
           color: foregroundColor,
           fontSize: 21,
         ),
@@ -113,32 +166,3 @@ class AuthButton extends StatelessWidget {
     );
   }
 }
-
-// For Text Change Animation
-// Row(
-//   mainAxisSize: MainAxisSize.min,
-//   children: <Widget>[
-//     const SizedBox(width: 20.0, height: 100.0),
-//     const Text(
-//       'Be',
-//       style: TextStyle(fontSize: 43.0),
-//     ),
-//     const SizedBox(width: 20.0, height: 100.0),
-//     DefaultTextStyle(
-//       style: const TextStyle(
-//         fontSize: 40.0,
-//         fontFamily: 'Horizon',
-//       ),
-//       child: AnimatedTextKit(
-//         animatedTexts: [
-//           RotateAnimatedText('AWESOME'),
-//           RotateAnimatedText('OPTIMISTIC'),
-//           RotateAnimatedText('DIFFERENT'),
-//         ]
-//         onTap: () {
-//           print("Tap Event");
-//         },
-//       ),
-//     ),
-//   ],
-// );
